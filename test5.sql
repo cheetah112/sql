@@ -1,0 +1,39 @@
+-- CREATE TABLE ACCOUNT(
+-- id INT PRIMARY KEY AUTO_INCREMENT,
+-- enabled INT,
+-- PASSWORD VARCHAR(125),
+-- username VARCHAR(125)
+-- );
+-- INSERT INTO ACCOUNT(enabled,PASSWORD,username)
+-- VALUES
+-- (1,'123456','t1'),
+-- (1,'123456','t2'),
+-- (0,'123456','t3')
+-- UPDATE ACCOUNT
+-- SET username='t10',PASSWORD='7654321'
+-- WHERE id=1;
+-- DELETE FROM ACCOUNT 
+-- WHERE id=3
+-- CREATE TABLE student5(
+-- id INT PRIMARY KEY AUTO_INCREMENT,
+-- student_name VARCHAR(225) NOT NULL,
+-- age INT,
+-- score FLOAT
+-- );
+-- INSERT INTO student5(student_name,age,score)
+-- VALUES 
+-- ('a', 15, 7.5),
+-- ('b', 15, 7),
+-- ('c', 20, 8.2),
+-- ('d', 17, 9),
+-- ('e', 21, 6.7),
+-- ('f', 22, 8.8),
+-- ('g', 16, 7.1),
+-- ('h', 18, 6.5)
+-- SELECT MAX(age) AS 'tuoi_lon_nhat' FROM student5; 
+-- SELECT AVG(score) AS 'diem_trung_binh' FROM student5;
+-- SELECT COUNT(*) AS 'so_hoc_sinh_gioi' FROM student5 WHERE score >= 8;
+-- SELECT SUM(score) AS 'tong_diem' FROM student5;
+-- SELECT score, COUNT(score) FROM student5 GROUP BY score 
+
+

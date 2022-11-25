@@ -1,0 +1,32 @@
+-- CREATE TABLE student(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	NAME VARCHAR(255),
+-- 	email VARCHAR(255) UNIQUE
+-- )
+-- CREATE TABLE revenue(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	record_date DATE,
+-- 	amount DOUBLE
+-- )
+-- 	INSERT INTO revenue(record_date,amount)
+-- 	VALUES 
+-- 	('2020-03-02',635000),
+-- 	('2020-03-03',136000)
+-- SELECT DATEDIFF('2022-11-19','2022-11-18');
+-- SELECT DATEDIFF ('2022-11-19','2022-10-19');
+-- SELECT a.*,b.* FROM revenue a, revenue b;
+-- INSERT INTO revenue (record_date,amount)
+-- VALUES 
+-- ('2020-03-04', 1098000),
+-- ('2020-03-05', 782000),
+-- ('2020-03-06', 891000),
+-- ('2020-03-07', 632000),
+-- ('2020-03-08', 633000),
+-- ('2020-03-09', 789000),
+-- ('2020-03-10', 100100),
+-- ('2020-03-11', 210000)
+-- SELECT * FROM revenue WHERE amount > 500000;
+-- SELECT a.* FROM revenue a, revenue b WHERE DATEDIFF(a.record_date, b.record_date) = 1 AND a.amount > b.amount;
+-- SELECT amount % 100000 AS so_tien_le FROM revenue
+SELECT CONCAT(record_date,' : ',amount) AS 'Ngay:Tien'
+FROM revenue

@@ -1,0 +1,30 @@
+-- SHOW DATABASES
+-- CREATE TABLE student2(
+-- 	id INT,
+-- 	full_name CHAR(255),
+-- 	age INT,
+-- 	birthday DATE,
+-- 	country VARCHAR(400),
+-- 	username VARCHAR(255),
+-- 	passwostudentrd VARCHAR(255)
+-- )
+
+-- INSERT INTO student (id, full_name)
+-- VALUES 
+-- (2,'nguyen b',30,'1990-03-18','VN','b','pass2'),
+-- (3,'nguyen c',30,'1990-03-18','VN','c','pass3'),
+-- (4,'nguyen d',30,'1990-03-18','VN','d','pass4'),
+-- (5,'nguyen e',30,'1990-03-18','VN','e','pass5');
+-- (6,'nguyen f');
+-- SELECT * FROM student
+-- SELECT full_name, age FROM student
+-- SELECT * FROM student WHERE age > 18
+-- SELECT * FROM student WHERE PASSWORD = 'pass4';
+-- SELECT * FROM student WHERE country = 'VN';
+-- SELECT * FROM student WHERE full_name = 'nguyen b';
+-- SELECT * FROM student WHERE age > 18 AND country = 'VN';
+-- SELECT * FROM student WHERE age < 18 AND birthday IS null;
+-- SELECT * FROM student WHERE age < 18 and country = 'VN' OR birthday IS not null;
+-- SELECT * FROM student WHERE id IN (1, 2, 6);
+-- SELECT * FROM student WHERE MONTH(birthday) = MONTH(NOW());
+-- SELECT * DISTINCT (country) FROM student;

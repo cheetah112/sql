@@ -1,0 +1,15 @@
+-- CREATE DATABASE if NOT EXISTS test;
+-- CREATE TABLE test1(
+-- 	id INT AUTO_INCREMENT,
+-- 	NAME VARCHAR(255),
+-- 	PRIMARY KEY (id)
+-- )
+-- INSERT INTO test1 (NAME)
+-- VALUES
+-- ('a'),
+-- ('b'),
+-- ('c');
+CREATE TABLE test 2(
+	ID INT PRIMARY KEY IDENTITY(1,1),
+	NAME VARCHAR(255),
+)
