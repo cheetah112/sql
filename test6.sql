@@ -1,0 +1,29 @@
+-- CREATE TABLE department(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	department_name VARCHAR(255)
+-- );
+-- 
+-- CREATE TABLE student6(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	student_name VARCHAR(255),
+-- 	age INT,
+-- 	email VARCHAR(255),
+-- 	department_id INT,
+-- 	FOREIGN KEY (department_id) REFERENCES department(id)
+-- );
+-- INSERT INTO department(department_name)
+-- VALUES 
+-- ('khoi 6'),
+-- ('khoi 7'),
+-- ('khoi 8'),
+-- ('khoi 9');
+-- 
+-- INSERT INTO student6(student_name, age, email, department_id)
+-- VALUES 
+-- ('Nam', 12, 'nam@gmail.com',1),
+-- ('Tuan', 13, 'tuan@gmail.com',2),
+-- ('Hoa', 14, 'hoa@gmail.com',3),
+-- ('Viet', 15, 'viet@gmail.com',4),
+-- ('Trang', 13, 'trang@gmail.com',2),
+-- ('Ngoc', 13, 'ngoc@gmail.com',2);
+-- SELECT student6.student_name,department.department_name FROM department left JOIN student6 ON student6.department_id = department.id;
