@@ -1,0 +1,185 @@
+CREATE DATABASE kiem_tra_cuoi_khoa;
+
+-- ------------------------------------------------------------------------------------------------------------
+-- Bai1:
+-- them du lieu
+CREATE TABLE categories(
+	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	category_code VARCHAR(50) NOT NULL,
+	category_name VARCHAR(50) NOT NULL,
+	created_date DATETIME NOT NULL,
+	updated_date DATETIME NOT NULL
+);
+
+CREATE TABLE products(
+	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	product_code VARCHAR(50) NOT NULL,
+	product_name VARCHAR(50) NOT NULL,
+	image VARCHAR(50),
+	DESCRIPTION VARCHAR(50),
+	price DOUBLE,
+	quantity INT,
+	country VARCHAR(50),
+	is_new ENUM('NEW','NOT_NEW'),
+	category_id BIGINT NOT NULL,
+	created_date DATETIME NOT NULL,
+	updated_date DATETIME NOT NULL,
+	FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+
+CREATE TABLE orders(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	quantity INT NOT NULL,
+	price DOUBLE NOT NULL,
+	paid_date DATETIME,
+	created_date DATETIME NOT NULL,
+	updated_date DATETIME NOT NULL
+);
+
+CREATE TABLE order_products(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	order_id INT NOT NULL,
+	product_id BIGINT NOT NULL,
+	FOREIGN KEY (order_id) REFERENCES orders(id),
+	FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+INSERT INTO categories(category_code, category_name, created_date, updated_date)
+VALUES
+('1','Quan ao','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('2','Giay dep','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('3','Van phong pham','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('4','Dien tu','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('5','May tinh','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('6','Banh keo','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('7','Do gia dung','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('8','Xe co','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('9','Thuc an','2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('10','Ban ghe','2000-01-01 12:00:00','2000-01-02 18:00:00');
+
+INSERT INTO products(product_code, product_name, image, DESCRIPTION, price, quantity, country, is_new, category_id, created_date, updated_date)
+VALUES 
+('1','Ao phong','aophong.jpg','ao phong dep',300000,5000,'CHINA','NEW',1,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('2','Ao khoac','aokhoac.jpg','ao khoac dep',800000,5000,'USA','NEW',1,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('3','Ao chong nang','aochongnang.jpg','ao chong nang dep',150000,5000,'CHINA','NEW',1,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('4','Quan kaki','quankaki.jpg','quan kaki dep',600000,5000,'CHINA','NEW',1,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('5','Quan bo','quanbo.jpg','quan bo dep',700000,5000,'VIETNAM','NEW',1,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('6','Toyota cross g','toyotacross.jpg','xe oto',600000000,5,'THAILAND','NOT_NEW',8,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('7','Mazda CX5','CX5.jpg','Mazda cx5',890000000,15,'JAPAN','NEW',8,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('8','Laptop acer','laptopAcer.jpg','laptop',20000000,100,'CHINA','NEW',5,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('9','Chuot MSI','chuotMSI.jpg','chuotMSI',400000,2000,'CHINA','NEW',5,'2000-01-01 12:00:00','2000-01-02 18:00:00'),
+('10','Ban phim corsair','banphim.jpg','banphim',2500000,2000,'CHINA','NEW',5,'2000-01-01 12:00:00','2000-01-02 18:00:00');
+
+INSERT INTO orders(quantity, price, paid_date, created_date, updated_date)
+VALUES
+(2,1000000,'2020-10-15 16:25:00','2020-10-15 16:25:00','2020-10-15 16:25:00'),
+(4,2000000,'2020-10-15 17:05:00','2020-10-15 17:05:00','2020-10-15 17:05:00'),
+(1,2500000,'2020-10-15 18:20:00','2020-10-15 18:20:00','2020-10-15 18:20:00'),
+(1,800000,'2020-10-16 16:25:00','2020-10-16 16:25:00','2020-10-16 16:25:00'),
+(2,300000,'2020-10-16 18:15:00','2020-10-16 18:15:00','2020-10-16 18:15:00'),
+(1,400000,'2020-10-20 16:25:00','2020-10-15 16:25:00','2020-10-15 16:25:00'),
+(1,20000000,'2020-10-21 16:25:00','2020-10-15 16:25:00','2020-10-15 16:25:00'),
+(1,800000,'2020-10-21 16:25:00','2020-10-15 16:25:00','2020-10-15 16:25:00'),
+(1,800000,'2020-10-28 16:25:00','2020-10-15 16:25:00','2020-10-15 16:25:00'),
+(1,800000,'2020-10-28 16:25:00','2020-10-15 16:25:00','2020-10-15 16:25:00');
+
+INSERT INTO order_products(order_id,product_id)
+VALUES
+(1,1),(1,5),(2,1),(2,5),(3,10),(4,2),(5,1),(6,9),(7,8),(8,2),(9,2),(10,2);
+
+-- cau truy van
+-- Hiển thị danh sách sản phẩm gồm: product_code, product_name, country, category_name
+SELECT product_code, product_name, country, category_name
+FROM products a LEFT JOIN categories b 
+ON a.category_id = b.id;
+
+-- Tìm ra những sản phẩm có chứa kĩ tự ‘g’
+SELECT *
+FROM products
+WHERE products.product_name LIKE '%g%';
+
+-- Tìm ra những sản phẩm có chứa kĩ tự ‘g’ và có số lượng lớn hơn 20
+SELECT *
+FROM products
+WHERE products.product_name LIKE '%g%' AND products.quantity > 20;
+
+-- Thống kê số lượng đơn hàng theo ngày (vd: ngay 15/10/2020)
+SELECT COUNT(id) AS 'SO LUONG ORDERS:'
+FROM orders
+WHERE DATE(orders.paid_date) = '2020-10-15'; 
+-- ------------------------------------------------------------------------------------------------------------
+
+-- Bai 2:
+-- them du lieu
+CREATE TABLE Employee(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	NAME VARCHAR(50),
+	salary DOUBLE,
+	managerId INT DEFAULT NULL
+);
+
+INSERT INTO Employee(NAME, salary, managerId)
+VALUES
+('Joe',70000,3),
+('Henry',80000,4),
+('Sam',60000, NULL),
+('Max',90000, NULL);
+
+-- cau truy van
+SELECT a.name AS 'Nguoi_co_luong_cao_hon_quan_ly_cua_minh'
+FROM employee a, employee b
+WHERE a.managerId = b.id AND a.salary > b.salary;
+ 
+-- ------------------------------------------------------------------------------------------------------------ 
+-- Bai 3: 
+-- them du lieu
+CREATE TABLE Person(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	email VARCHAR(255)
+);
+
+INSERT INTO Person(email)
+VALUES ('a@b.com'), ('c@d.com'), ('a@b.com');
+
+-- cau truy van
+SELECT email AS 'email trung lap'
+FROM 
+	(SELECT email,COUNT(email) AS a
+	FROM Person
+	GROUP BY email) AS b
+WHERE b.a > 1;
+
+-- ------------------------------------------------------------------------------------------------------------
+-- Bai 4:
+-- them du lieu
+CREATE TABLE Customers(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	NAME VARCHAR(50)
+);
+CREATE TABLE order_b4(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	customerId INT,
+	FOREIGN KEY (customerID) REFERENCES Customers(id)
+);
+INSERT INTO Customers(NAME)
+VALUES 
+('Joe'),
+('Henry'),
+('Sam'),
+('Max');
+INSERT INTO order_b4(customerID)
+VALUES 
+(3),
+(1);
+
+-- cau truy van 
+SELECT b.name AS 'khach_hang_chua_bao_gio_order'
+FROM 
+	(SELECT *
+	FROM customers LEFT JOIN 
+		(SELECT customerID, COUNT(id) AS 'so_luong_order' 
+		FROM order_b4
+	GROUP BY (customerID)) AS a
+	ON customers.id = a.customerID) AS b
+WHERE b.so_luong_order IS NULL
+;
