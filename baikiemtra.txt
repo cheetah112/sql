@@ -179,7 +179,7 @@ FROM
 	FROM customers LEFT JOIN 
 		(SELECT customerID, COUNT(id) AS 'so_luong_order' 
 		FROM order_b4
-	GROUP BY (customerID)) AS a
+		GROUP BY (customerID)) AS a
 	ON customers.id = a.customerID) AS b
 WHERE b.so_luong_order IS NULL
 ;
